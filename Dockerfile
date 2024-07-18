@@ -12,7 +12,7 @@ RUN dotnet restore
 #COPY . ./
 
 # Build the application
-RUN dotnet publish -c Release -o out
+#RUN dotnet publish -c Release -o out
 
 # Create the final runtime image
 FROM mcr.microsoft.com/dotnet/aspnet:3.1
@@ -20,4 +20,4 @@ WORKDIR /app
 COPY --from=build-env /app/out .
 
 # Set the entry point for the container
-ENTRYPOINT ["dotnet", "HelloWorld.dll"]
+#ENTRYPOINT ["dotnet", "HelloWorld.dll"]
